@@ -168,17 +168,17 @@ html
           .card.card-default.d-none.d-md-block.d-block
             .card-header
               if settings.nethash_units == 'K'
-                strong #{settings.locale.network} (KH/s)
+                strong #{settings.locale.network} (KSol/s)
               else if settings.nethash_units == 'M'
-                strong #{settings.locale.network} (MH/s)
+                strong #{settings.locale.network} (MSol/s)
               else if settings.nethash_units == 'G'
-                strong #{settings.locale.network} (GH/s)
+                strong #{settings.locale.network} (GSol/s)
               else if settings.nethash_units == 'T'
-                strong #{settings.locale.network} (TH/s)
+                strong #{settings.locale.network} (TSol/s)
               else if settings.nethash_units == 'P'
-                strong #{settings.locale.network} (PH/s)
+                strong #{settings.locale.network} (PSol/s)
               else if settings.nethash_units == 'H'
-                strong #{settings.locale.network} (H/s)
+                strong #{settings.locale.network} (Sol/s)
             .card-body
               #hashratecard
                 span.header-icons.fa.fa-gears
