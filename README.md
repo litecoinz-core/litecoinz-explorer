@@ -1,11 +1,11 @@
-Iquidus Explorer - 1.7.4
+LitecoinZ Explorer - 1.7.4
 ================
 
-An open source block explorer written in node.js.
+An open source block explorer written in node.js (based on Iquidus Explorer).
 
 ### See it in action
 
-*  [List of live explorers running Iquidus](https://github.com/iquidus/explorer/wiki/Live-Explorers)
+*  [LitecoinZ](https://explorer.litecoinz.org/)
 
 
 *Note: If you would like your instance mentioned here contact me*
@@ -14,7 +14,7 @@ An open source block explorer written in node.js.
 
 *  node.js >= 8.17.0 (12.14.0 is advised for updated dependencies)
 *  mongodb 4.2.x
-*  *coind
+*  *litecoinzd
 
 ### Create database
 
@@ -96,7 +96,7 @@ sync.js (located in scripts/) is used for updating the local databases. This scr
 
 ### Wallet
 
-Iquidus Explorer is intended to be generic, so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
+LitecoinZ Explorer is intended to be generic, so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags
 
     -daemon -txindex
     
@@ -133,6 +133,7 @@ Where [SIZE] is an integer higher than the default.
 
 ### License
 
+Copyright (c) 2023, LitecoinZ Developers
 Copyright (c) 2015, Iquidus Technology  
 Copyright (c) 2015, Luke Williams  
 All rights reserved.
