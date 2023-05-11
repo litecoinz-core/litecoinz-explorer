@@ -2,13 +2,13 @@ extends menu
 
 block market_view
   .row
-    .col-md-12  
+    .col-md-12
       .card.card-default
         .card-header
           strong #{settings.locale.freiexchange} - #{marketdata.coin}/#{marketdata.exchange} - #{settings.locale.mkt_hours}
           a(href='#')
-            span.fa.fa-line-chart.pull-right.view-chart-disabled.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title=settings.locale.mkt_no_chart) 
-        table.table.table-bordered.summary-table 
+            span.fa.fa-line-chart.pull-right.view-chart-disabled.iquidus.market-toggle(data-toggle='tooltip', data-placement='bottom', title=settings.locale.mkt_no_chart)
+        table.table.table-bordered.summary-table
           thead
             tr
               th #{settings.locale.mkt_high}
@@ -19,13 +19,13 @@ block market_view
               th.d-none.d-sm-block #{settings.locale.mkt_last}
           tbody
             tr
-              td #{marketdata.data.summary.high}
-              td #{marketdata.data.summary.low}
-              td #{marketdata.data.summary.volume}
-              td.d-none.d-sm-block #{marketdata.data.summary.bid}
-              td.d-none.d-sm-block #{marketdata.data.summary.ask}
-              td.d-none.d-sm-block #{marketdata.data.summary.last}
-  .row
+              td #{parseFloat(marketdata.data.summary.high).toFixed(8)}
+              td #{parseFloat(marketdata.data.summary.low).toFixed(8)}
+              td #{parseFloat(marketdata.data.summary.volume).toFixed(8)}
+              td.d-none.d-sm-block #{parseFloat(marketdata.data.summary.bid).toFixed(8)}
+              td.d-none.d-sm-block #{parseFloat(marketdata.data.summary.ask).toFixed(8)}
+              td.d-none.d-sm-block #{parseFloat(marketdata.data.summary.last).toFixed(8)}
+  .row(style='padding-top:25px;')
     .col-md-6.col-xs-12
       .card.card-default
         .card-header
@@ -64,7 +64,7 @@ block market_view
                   =parseFloat(sell.amount).toFixed(8)
                 td.d-none.d-sm-block
                   =parseFloat(sell.total).toFixed(8)
-  .row   
+  .row(style='padding-top:25px;')
     .col-md-12
       .card.card-default
         .card-header
@@ -73,35 +73,34 @@ block market_view
           thead
             tr
               th.d-none.d-sm-block #{settings.locale.mkt_type}
-              th #{settings.locale.mkt_amount} (#{marketdata.coin})              
+              th #{settings.locale.mkt_amount} (#{marketdata.coin})
               th #{settings.locale.mkt_price} (#{marketdata.exchange})
               th #{settings.locale.mkt_total} (#{marketdata.exchange})
-              th #{settings.locale.mkt_time_stamp}
+              th.d-none.d-sm-block #{settings.locale.mkt_time_stamp}
           tbody
             each order in marketdata.data.history
-              if order.ordertype == 'buy'
+              if order.ordertype == 'BUY'
                 tr.success
                   td.d-none.d-sm-block
                     =order.ordertype
                   td
-                    =order.amount
+                    =parseFloat(order.amount).toFixed(8)
                   td
-                    =order.price
+                    =parseFloat(order.price).toFixed(8)
                   td
-                    =order.total
+                    =parseFloat(order.total).toFixed(8)
                   td.d-none.d-sm-block
-                    =(new Date(order.timestamp * 1000).toUTCString())
+                    =order.timestamp
               else
-                tr.danger 
+                tr.danger
                   td.d-none.d-sm-block
                     =order.ordertype
                   td
-                    =order.amount
+                    =parseFloat(order.amount).toFixed(8)
                   td
-                    =order.price
+                    =parseFloat(order.price).toFixed(8)
                   td
-                    =order.total
+                    =parseFloat(order.total).toFixed(8)
                   td
                     =order.timestamp
-
       .footer-padding
